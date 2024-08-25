@@ -10,10 +10,8 @@ const port = process.env.PORT || 3000;
 // Middleware to parse JSON
 app.use(express.json());
 
-// Instantiate EmailService with mock providers
 const emailService = new EmailService();
 
-// Define the POST endpoint for sending emails
 app.post('/send-email', async (req: Request, res: Response) => {
   const { to, subject, body, id } = req.body;
   
@@ -30,7 +28,6 @@ app.post('/send-email', async (req: Request, res: Response) => {
   }
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

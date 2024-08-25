@@ -26,7 +26,7 @@ export class EmailService {
         1000 // initial delay in milliseconds
       );
     };
-  
+
     while (this.currentProviderIndex < this.providers.length) {
       const provider = this.providers[this.currentProviderIndex];
       try {
@@ -34,7 +34,6 @@ export class EmailService {
         console.log('Email sent successfully');
         return;
       } catch (error) {
-        // Type assertion to handle specific error types
         if (error instanceof Error) {
           console.error(`Provider ${this.currentProviderIndex} failed: ${error.message}`);
         } else {
